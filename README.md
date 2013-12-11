@@ -17,3 +17,5 @@ One 'div' and your media is in.
 		 	type = can be "audio" or "video" (without quotes, according to your file)
 		 	name = name of the files (all files must have the same name)
 		 	width and height = the width and height of the video, it will NOT change anything in the audio.
+
+Try it at www.patchiyama.com
