@@ -18,27 +18,31 @@
 
 var medias = document.getElementsByTagName("div");											//Select all div
 for(var i = 0; i < medias.length; i++){
-	if(medias[i].getAttribute('class').toString() == 'easymedia'){							//Select just easymedia divs
+	try{
+		if(medias[i].getAttribute('class').toString() == 'easymedia'){							//Select just easymedia divs
 			var mediaNow = medias[i].getAttribute('id');
 			mediaNow = mediaNow.split('_');
 			console.log(mediaNow);
 			var div = document.getElementById(medias[i].getAttribute('id'));
-		if(mediaNow[0].toString() == 'audio'){
-			div.innerHTML = div.innerHTML
-				+ '<audio controls>'
-  					+ '<source src="' + mediaNow[1] + '.mp3" type="audio/mp3">'
-  					+ '<source src="' + mediaNow[1] + '.ogg" type="audio/ogg">'
-  					+ '<source src="' + mediaNow[1] + '.wav" type="audio/wav">'
-					+ 'Your browser does not support the audio element.'
-				+ '</audio>';
-		}else{
-			div.innerHTML = div.innerHTML
-				+'<video width="' + mediaNow[2] + '" height="' + mediaNow[3] + '" controls>'
-  					+ '<source src="' + mediaNow[1] + '.mp4" type="video/mp4">'
-  					+ '<source src="' + mediaNow[1] + '.ogg" type="video/ogg">'
-  					+ '<source src="' + mediaNow[1] + '.webm" type="video/webm">'
-					+ 'Your browser does not support the video element.'
-				+ '</video>';
+			if(mediaNow[0].toString() == 'audio'){
+				div.innerHTML = div.innerHTML
+					+ '<audio controls>'
+  						+ '<source src="' + mediaNow[1] + '.mp3" type="audio/mp3">'
+  						+ '<source src="' + mediaNow[1] + '.ogg" type="audio/ogg">'
+  						+ '<source src="' + mediaNow[1] + '.wav" type="audio/wav">'
+						+ 'Your browser does not support the audio element.'
+					+ '</audio>';
+			}else{
+				div.innerHTML = div.innerHTML
+					+'<video width="' + mediaNow[2] + '" height="' + mediaNow[3] + '" controls>'
+  						+ '<source src="' + mediaNow[1] + '.mp4" type="video/mp4">'
+  						+ '<source src="' + mediaNow[1] + '.ogg" type="video/ogg">'
+  						+ '<source src="' + mediaNow[1] + '.webm" type="video/webm">'
+						+ 'Your browser does not support the video element.'
+					+ '</video>';
+			}
 		}
+	}catch(e){
+
 	}
 }
